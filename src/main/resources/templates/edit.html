@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Creation: todo list app</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" th:href="@{'/'}">Creation | <span class="h6 fw-light">to-do list app</span></a>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="row d-flex align-items-center" style="min-height: 500px">
+        <div
+          class="col-lg-5 d-flex align-items-center"
+          style="min-height: 400px"
+        >
+          <img th:src="@{/photo3.png}" alt="tak" width="100%" />
+        </div>
+        <div class="col-lg-7">
+          <div class="card shadow" style="min-height: 300px">
+            <div class="card-body p-5">
+              <h2 class="mb-4 text-center">Ubah Data</h2>
+              <form
+                action="#"
+                th:action="@{/save}"
+                th:object="${task}"
+                method="post"
+              >
+              <div class="mb-3">
+                <label for="task_name" class="form-label">Nama Tugas</label>
+                <input type="hidden" th:field="*{id}" />
+                <input
+                  type="text"
+                  th:field="*{task_name}"
+                  class="form-control"
+                />
+                <input
+                  type="hidden"
+                  th:field="*{keterangan}"
+                  value="false"
+                />
+            </div>
+
+                <button type="submit" class="btn btn-primary">Ubah</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
